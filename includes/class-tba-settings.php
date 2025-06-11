@@ -77,5 +77,4 @@ class TBA_Settings {
         </div>
         <?php
     }
-}
-?> 
+} 

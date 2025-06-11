@@ -13,5 +13,4 @@ function tba_define_webhook_url() {
         define( 'TBA_WEBHOOK_URL', rest_url( 'tba/v1/webhook' ) );
     }
 }
-add_action( 'init', 'tba_define_webhook_url' );
-?> 
+add_action( 'init', 'tba_define_webhook_url' ); 

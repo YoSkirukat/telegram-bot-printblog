@@ -63,4 +63,4 @@ class TBA_Telegram_Bot {
     public function get_bot_token() {
         return $this->bot_token;
     }
-} 
+}

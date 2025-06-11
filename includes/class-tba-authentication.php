@@ -173,4 +173,4 @@ class TBA_Authentication {
         ) );
         return ! empty( $users ) ? $users[0] : false;
     }
-} 
+}
