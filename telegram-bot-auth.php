@@ -2,8 +2,8 @@
 /*
  * Plugin Name: Telegram Bot Authentication
  * Description: Плагин для интеграции Telegram бота для аутентификации пользователей на сайте WordPress.
- * Version: 1.0.0
- * Author: Ваше Имя
+ * Version: 0.0.1 Beta
+ * Author: Иван Малышев
  * License: GPL2
  */
 
