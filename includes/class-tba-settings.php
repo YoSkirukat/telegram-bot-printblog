@@ -7,6 +7,7 @@ class TBA_Settings {
     public function __construct() {
         add_action( 'admin_menu', array( $this, 'add_settings_page' ) );
         add_action( 'admin_init', array( $this, 'register_settings' ) );
+        add_action( 'update_option_tba_bot_token', array( $this, 'set_telegram_webhook' ), 10, 2 );
     }
 
     public function add_settings_page() {
@@ -76,5 +77,27 @@ class TBA_Settings {
             </form>
         </div>
         <?php
+    }
+
+    public function set_telegram_webhook( $old_value, $new_value ) {
+        if ( $new_value && $new_value !== $old_value ) {
+            $telegram_bot = new TBA_Telegram_Bot();
+            $result = $telegram_bot->set_webhook( TBA_WEBHOOK_URL );
+            if ( $result['ok'] ) {
+                add_settings_error(
+                    'tba_settings_group',
+                    'webhook_set',
+                    __( 'Вебхук для Telegram бота успешно установлен.', 'telegram-bot-auth' ),
+                    'updated'
+                );
+            } else {
+                add_settings_error(
+                    'tba_settings_group',
+                    'webhook_error',
+                    __( 'Ошибка при установке вебхука для Telegram бота: ', 'telegram-bot-auth' ) . $result['description'],
+                    'error'
+                );
+            }
+        }
     }
 } 
